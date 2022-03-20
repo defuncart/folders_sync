@@ -1,0 +1,40 @@
+name: folders_sync
+description: A macOS application which syncs the contents of one folder to another.
+publish_to: 'none'
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.10.0 < 3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+  intl_utils:
+  arb_generator:
+
+flutter:
+  uses-material-design: true
+
+arb_generator:
+  input_filepath: "assets_dev/loca/loca.csv"
+  output_directory: "assets_dev/l10n"
+  filename_prepend: "intl_"
+  csv_settings:
+    delimiter: ";"
+    description_index: 1
+    base_index: 2
+
+flutter_intl:
+  enabled: true
+  class_name: AppLocalizations
+  main_locale: en
+  arb_dir: assets_dev/l10n
+  output_dir: lib/generated
