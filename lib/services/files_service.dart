@@ -35,6 +35,7 @@ class FilesService {
   }
 }
 
-extension on List<String> {
-  List<String> determineRelativePaths(String path) => map((e) => e.replaceAll(path, '')).toList();
+extension RelativePathExtensions on List<String> {
+  @visibleForTesting
+  List<String> determineRelativePaths(String path) => map((e) => e.replaceAll(path, '').substring(1)).toList();
 }
