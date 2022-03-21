@@ -13,6 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   file_selector:
+  path:
 
 dev_dependencies:
   flutter_test:
