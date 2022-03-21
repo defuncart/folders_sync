@@ -33,9 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'To',
             ),
             ElevatedButton(
-              onPressed: _fromPath == null || _toPath == null
-                  ? null
-                  : () => FilesService().filesInFolderANotInFolderB(_fromPath!, _toPath!),
+              onPressed: _fromPath == null || _toPath == null ? null : () => FilesService().sync(_fromPath!, _toPath!),
               child: Text('Sync'),
             ),
           ],

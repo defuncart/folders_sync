@@ -2,8 +2,30 @@ import 'dart:developer' show log;
 import 'dart:io';
 
 import 'package:meta/meta.dart';
+import 'package:path/path.dart' as path;
 
 class FilesService {
+  Future<void> sync(String pathA, String pathB) async {
+    final filesToSync = await filesInFolderANotInFolderB(pathA, pathB);
+    await copyFiles(relativeFiles: filesToSync, fromAbsolute: pathA, toAbsolute: pathB);
+  }
+
+  @visibleForTesting
+  Future<void> copyFiles({
+    required List<String> relativeFiles,
+    required String fromAbsolute,
+    required String toAbsolute,
+  }) async {
+    for (final relativeFile in relativeFiles) {
+      final from = path.join(fromAbsolute, relativeFile);
+      final to = path.join(toAbsolute, relativeFile);
+
+      final file = File(from);
+      await file.copy(to);
+    }
+  }
+
+  @visibleForTesting
   Future<List<String>> filesInFolderANotInFolderB(String pathA, String pathB) async {
     final filesInFolderAAbsolute = await filesInDirectory(pathA);
     final filesInFolderBAbsolute = await filesInDirectory(pathB);
