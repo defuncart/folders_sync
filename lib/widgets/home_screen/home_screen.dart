@@ -1,6 +1,7 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:folders_sync/services/files_service.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -60,6 +61,11 @@ class FolderSelector extends StatelessWidget {
     return Row(
       children: [
         if (path != null) Text(path!),
+        if (path != null)
+          TextButton(
+            onPressed: () => launch('file:${path!}'),
+            child: Text('Show in Finder'),
+          ),
         ElevatedButton(
           onPressed: () async {
             final newPath = await getDirectoryPath();
