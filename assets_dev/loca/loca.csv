@@ -1,2 +1,5 @@
 key;description;en;de
-test;A test key;Hello World!;Hallo Welt!
+generalFrom;Text describing source folder;From;
+generalTo;Text describing target folder;To;
+generalSync;Text describing sync functionality;Sync;
+generalShowInFinder;Text describing opening a folder in Finder;Show in Finder;
