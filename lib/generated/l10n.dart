@@ -50,12 +50,42 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  /// `Hello World!`
-  String get test {
+  /// `From`
+  String get generalFrom {
     return Intl.message(
-      'Hello World!',
-      name: 'test',
-      desc: 'A test key',
+      'From',
+      name: 'generalFrom',
+      desc: 'Text describing source folder',
+      args: [],
+    );
+  }
+
+  /// `Show in Finder`
+  String get generalShowInFinder {
+    return Intl.message(
+      'Show in Finder',
+      name: 'generalShowInFinder',
+      desc: 'Text describing opening a folder in Finder',
+      args: [],
+    );
+  }
+
+  /// `Sync`
+  String get generalSync {
+    return Intl.message(
+      'Sync',
+      name: 'generalSync',
+      desc: 'Text describing sync functionality',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get generalTo {
+    return Intl.message(
+      'To',
+      name: 'generalTo',
+      desc: 'Text describing target folder',
       args: [],
     );
   }

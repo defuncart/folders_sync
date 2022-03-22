@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "test": MessageLookupByLibrary.simpleMessage("Hello World!")
+        "generalFrom": MessageLookupByLibrary.simpleMessage("From"),
+        "generalShowInFinder":
+            MessageLookupByLibrary.simpleMessage("Show in Finder"),
+        "generalSync": MessageLookupByLibrary.simpleMessage("Sync"),
+        "generalTo": MessageLookupByLibrary.simpleMessage("To")
       };
 }

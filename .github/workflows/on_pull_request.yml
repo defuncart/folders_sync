@@ -18,7 +18,7 @@ jobs:
         run: flutter analyze
       - name: Tests
         run: flutter test
-      - name: build 
+      - name: Build 
         run: |
-        flutter config --enable-macos-desktop
-        flutter build macos --release
+          flutter config --enable-macos-desktop
+          flutter build macos --release
