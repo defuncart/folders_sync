@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   file_selector:
   path:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
