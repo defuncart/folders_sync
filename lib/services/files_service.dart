@@ -8,6 +8,9 @@ class FilesService {
   Future<void> sync(String pathA, String pathB) async {
     final filesToSync = await filesInFolderANotInFolderB(pathA, pathB);
     await copyFiles(relativeFiles: filesToSync, fromAbsolute: pathA, toAbsolute: pathB);
+
+    final filesToDelete = await filesInFolderANotInFolderB(pathB, pathA);
+    await deleteFiles(relativeFiles: filesToDelete, fromAbsolute: pathB);
   }
 
   @visibleForTesting
@@ -22,6 +25,19 @@ class FilesService {
 
       final file = File(from);
       await file.copy(to);
+    }
+  }
+
+  @visibleForTesting
+  Future<void> deleteFiles({
+    required List<String> relativeFiles,
+    required String fromAbsolute,
+  }) async {
+    for (final relativeFile in relativeFiles) {
+      final from = path.join(fromAbsolute, relativeFile);
+
+      final file = File(from);
+      await file.delete();
     }
   }
 
