@@ -15,6 +15,7 @@ dependencies:
   file_selector:
   path:
   url_launcher:
+  nativeshell:
 
 dev_dependencies:
   flutter_test:

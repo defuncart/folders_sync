@@ -47,3 +47,6 @@ app.*.map.json
 
 # Local assets
 assets_dev/l10n/
+
+# NativeShell
+/target

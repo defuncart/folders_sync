@@ -11,6 +11,9 @@ To build the app locally, the following tools are required:
 - macOS:
     - Xcode >= 13.0
     - CocoaPods >= 1.11.0
+- Rust
+
+then use `cargo run` (or `cargo run --target=x86_64-apple-darwin` on Silicon Macs) to run the app.
 
 ## Code Generation
 
