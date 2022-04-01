@@ -24,6 +24,9 @@ class FilesService {
       final to = path.join(toAbsolute, relativeFile);
 
       final file = File(from);
+      if (!await File(to).exists()) {
+        await File(to).create(recursive: true);
+      }
       await file.copy(to);
     }
   }
@@ -69,7 +72,7 @@ class FilesService {
   @visibleForTesting
   Future<List<FileSystemEntity>> directoryContents(String path) async {
     final dir = Directory(path);
-    return dir.list(recursive: true, followLinks: false).toList();
+    return dir.list(recursive: true, followLinks: false).where((e) => FileSystemEntity.isFileSync(e.path)).toList();
   }
 }
 

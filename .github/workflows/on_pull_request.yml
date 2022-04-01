@@ -20,5 +20,4 @@ jobs:
         run: flutter test
       - name: Build 
         run: |
-          flutter config --enable-macos-desktop
-          flutter build macos --release
+          cargo build --release
