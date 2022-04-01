@@ -24,6 +24,9 @@ class FilesService {
       final to = path.join(toAbsolute, relativeFile);
 
       final file = File(from);
+      if (!await File(to).exists()) {
+        await File(to).create(recursive: true);
+      }
       await file.copy(to);
     }
   }
