@@ -12,6 +12,7 @@ fn build_flutter() -> BuildResult<()> {
             bundle_identifier: "com.defuncart.folderssync".into(),
             bundle_display_name: "folders_sync".into(),
             icon_file: "icons/AppIcon.icns".into(),
+            info_plist_template: Some("resources/Info.plist".into()),
             info_plist_additional_args: hash_map! {
                 "PRODUCT_COPYRIGHT".into() : "Copyright © 2022 defuncart. All rights reserved".into(),
             },
