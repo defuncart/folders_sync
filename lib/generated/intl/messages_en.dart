@@ -26,6 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalShowInFinder":
             MessageLookupByLibrary.simpleMessage("Show in Finder"),
         "generalSync": MessageLookupByLibrary.simpleMessage("Sync"),
-        "generalTo": MessageLookupByLibrary.simpleMessage("To")
+        "generalTo": MessageLookupByLibrary.simpleMessage("To"),
+        "menuBarQuitLabel": MessageLookupByLibrary.simpleMessage("Quit"),
+        "menuBarSettingsLabel":
+            MessageLookupByLibrary.simpleMessage("Settings"),
+        "menuBarSyncLabel": MessageLookupByLibrary.simpleMessage("Sync")
       };
 }
