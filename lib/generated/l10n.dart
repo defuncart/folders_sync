@@ -89,6 +89,36 @@ class AppLocalizations {
       args: [],
     );
   }
+
+  /// `Quit`
+  String get menuBarQuitLabel {
+    return Intl.message(
+      'Quit',
+      name: 'menuBarQuitLabel',
+      desc: 'Text describing quit application action',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get menuBarSettingsLabel {
+    return Intl.message(
+      'Settings',
+      name: 'menuBarSettingsLabel',
+      desc: 'Text describing open settings action',
+      args: [],
+    );
+  }
+
+  /// `Sync`
+  String get menuBarSyncLabel {
+    return Intl.message(
+      'Sync',
+      name: 'menuBarSyncLabel',
+      desc: 'Text describing sync action',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -22,11 +22,48 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppWindowState extends WindowState {
+  late StatusItem _statusItem;
+
   @override
   WindowSizingMode get windowSizingMode => WindowSizingMode.atLeastIntrinsicSize;
 
   @override
   Future<void> initializeWindow(Size contentSize) async {
+    window.windowStateFlagsEvent.addListener((flags) {
+      if (!flags.active) {
+        window.deactivate(deactivateApplication: true);
+        window.hide();
+      }
+    });
+
+    _statusItem = await StatusItem.create(
+      onLeftMouseDown: (_) async {
+        final menu = [
+          MenuItem(
+            title: AppLocalizations.current.menuBarSyncLabel,
+            action: () {},
+          ),
+          MenuItem.separator(),
+          MenuItem(
+            title: AppLocalizations.current.menuBarSettingsLabel,
+            action: () async {
+              await window.activate();
+              await window.show();
+            },
+          ),
+          MenuItem.separator(),
+          MenuItem(
+            title: AppLocalizations.current.menuBarQuitLabel,
+            action: () => window.close(),
+          ),
+        ];
+        await _statusItem.showMenu(Menu(() => menu));
+      },
+    );
+    const assetPath = 'assets/icons/menu_bar_icon.png';
+    const image = AssetImage(assetPath);
+    await _statusItem.setImage(image);
+
     await window.setGeometry(Geometry(
       contentSize: size,
     ));
@@ -34,8 +71,10 @@ class MyAppWindowState extends WindowState {
       frame: WindowFrame.noTitle,
       canResize: false,
     ));
-    await window.show();
   }
+
+  @override
+  Future<void> windowCloseRequested() => window.hide();
 
   @override
   Widget build(BuildContext context) {

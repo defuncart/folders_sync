@@ -26,6 +26,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
 
 arb_generator:
   input_filepath: "assets_dev/loca/loca.csv"

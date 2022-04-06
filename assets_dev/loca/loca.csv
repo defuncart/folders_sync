@@ -3,3 +3,6 @@ generalFrom;Text describing source folder;From;
 generalTo;Text describing target folder;To;
 generalSync;Text describing sync functionality;Sync;
 generalShowInFinder;Text describing opening a folder in Finder;Show in Finder;
+menuBarSyncLabel;Text describing sync action;Sync;
+menuBarSettingsLabel;Text describing open settings action;Settings;
+menuBarQuitLabel;Text describing quit application action;Quit;
