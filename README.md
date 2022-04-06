@@ -17,9 +17,7 @@ then use `cargo run` (or `cargo run --target=x86_64-apple-darwin` on Silicon Mac
 
 ## Why NativeShell?
 
-Menu bar applications can be natively setup by defining `LSUIElement` to true in `Info.plist`, adding a `NSStatusItem` in `MainFlutterWindow.swift` and creating a native context menu in Interface Builder. However, from what I've tried, there is no way to open a flutter window from a native context menu.
-
-NativeShell simplifies this process while bring other benefits such as native drag & drop.
+Menu bar applications can be natively setup by defining `LSUIElement` to true in `Info.plist`, adding a `NSStatusItem` in `MainFlutterWindow.swift` and creating a native context menu in Interface Builder. However, I could not find a way to open a flutter window from a native context menu. NativeShell simplifies this process while bring other benefits such as native drag & drop.
 
 ## Code Generation
 
