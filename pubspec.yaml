@@ -16,6 +16,9 @@ dependencies:
   path:
   url_launcher:
   nativeshell:
+  path_provider:
+  hive:
+  flutter_riverpod:
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +26,8 @@ dev_dependencies:
   flutter_lints:
   intl_utils:
   arb_generator:
+  build_runner:
+  hive_generator:
 
 flutter:
   uses-material-design: true

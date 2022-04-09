@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:folders_sync/generated/l10n.dart';
+import 'package:folders_sync/state/state.dart';
 import 'package:folders_sync/widgets/home_screen/home_screen.dart';
 import 'package:nativeshell/nativeshell.dart';
 
 const size = Size(400, 200);
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
+  var _isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _init();
+  }
+
+  Future<void> _init() async {
+    await ref.read(syncDatabaseProvider).initialize();
+
+    setState(() => _isInitialized = true);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (!_isInitialized) {
+      return const SizedBox.shrink();
+    }
+
     return WindowWidget(
       onCreateState: (initData) {
         WindowState? state;
